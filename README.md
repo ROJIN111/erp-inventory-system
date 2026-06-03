@@ -21,7 +21,6 @@
 - [演示数据](#演示数据)
 - [项目结构](#项目结构)
 - [测试与验证](#测试与验证)
-- [面试讲解](#面试讲解)
 
 ## 系统截图
 
@@ -201,7 +200,6 @@ erp-inventory-system/
 |-- pom.xml                                  # 后端 Maven 构建文件
 |-- README.md                                # GitHub 项目说明
 |-- docs/
-|   |-- interview-demo.md                    # 面试演示脚本
 |   `-- screenshots/                         # README 展示截图
 |-- src/main/java/com/example/erpinventory/  # Spring Boot 后端源码
 |   |-- controller/                          # REST 接口
@@ -249,20 +247,6 @@ npm run build
 - 本地已通过 Docker Compose 成功启动 `MySQL + 后端 + 前端`。
 - 浏览器可访问登录页并使用 `admin / admin123` 登录进入首页。
 - 演示数据已在 MySQL 初始化日志中确认导入。
-
-## 面试讲解
-
-面试展示建议先看两份材料：
-
-- [docs/interview-demo.md](docs/interview-demo.md)：演示路线，适合边操作边讲。
-- [docs/interview-speech.md](docs/interview-speech.md)：口述稿，适合练自我介绍、项目概述和追问回答。
-
-建议按这个顺序讲：
-
-1. 用一句话说明项目解决的业务问题。
-2. 通过 Docker Compose 展示项目可运行性。
-3. 按“首页 -> 商品 -> 入库 -> 出库 -> 库存流水 -> 库存预警 -> 权限/日志”的顺序演示业务闭环。
-4. 重点讲清楚库存一致性、审核规则、RBAC 权限和演示数据设计。
 
 ## 后续可扩展方向
 

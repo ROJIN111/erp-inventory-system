@@ -1,4 +1,4 @@
--- Demo data for interview and README screenshots.
+-- Demo data for README screenshots and local project preview.
 -- This script is idempotent for records prefixed with DEMO-.
 
 SET NAMES utf8mb4;
