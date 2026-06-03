@@ -1,0 +1,61 @@
+HELP.md
+
+# Maven / backend build output
+target/
+*/target/
+*.pid
+*.log
+spring-*.out.log
+spring-*.err.log
+verify-*.out.log
+verify-*.err.log
+
+# Frontend build output and dependencies
+erp-inventory-web/node_modules/
+erp-inventory-web/dist/
+erp-inventory-web/.vite/
+erp-inventory-web/*.log
+.npm-cache/
+
+# Temporary local folders
+可删除文件/
+__restore_java__/
+capture-readme-screenshots.mjs
+.edge-readme-profile/
+.edge-test-profile/
+
+# Python/cache/tools output
+__pycache__/
+**/__pycache__/
+*.pyc
+
+# Keep Maven wrapper jar if a wrapper is added later
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/

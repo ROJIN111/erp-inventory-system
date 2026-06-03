@@ -1,0 +1,36 @@
+.git
+.idea
+.vscode
+
+# Backend build output
+target
+**/target
+
+# Frontend dependencies and build output
+node_modules
+erp-inventory-web/node_modules
+erp-inventory-web/dist
+erp-inventory-web/.vite
+
+# Local logs and temporary files
+*.log
+*.pid
+*.tmp
+HELP.md
+可删除文件
+
+# Documents are useful for GitHub but not for image builds
+docs
+*.md
+*.doc
+*.docx
+*.pdf
+*.pptx
+*.zip
+*.7z
+*.rar
+
+# Tool/cache output
+__pycache__
+**/__pycache__
+.npm-cache

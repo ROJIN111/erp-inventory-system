@@ -1,0 +1,59 @@
+name: erp-inventory-system
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: erp-inventory-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: erp_inventory
+      TZ: Asia/Shanghai
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./src/main/resources/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./src/main/resources/data.sql:/docker-entrypoint-initdb.d/02-data.sql:ro
+      - ./src/main/resources/demo-data.sql:/docker-entrypoint-initdb.d/03-demo-data.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: erp-inventory-backend
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      PROD_DB_URL: jdbc:mysql://mysql:3306/erp_inventory?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+      PROD_DB_USERNAME: root
+      PROD_DB_PASSWORD: root
+      APP_SEED_ENABLED: "true"
+      APP_JWT_SECRET: docker-demo-secret-key-for-erp-inventory-system-please-change-in-production
+      APP_CORS_ALLOWED_ORIGINS: http://localhost:3000,http://127.0.0.1:3000
+      TZ: Asia/Shanghai
+    ports:
+      - "8080:8080"
+
+  web:
+    build:
+      context: ./erp-inventory-web
+      dockerfile: Dockerfile
+    container_name: erp-inventory-web
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
+
+volumes:
+  mysql-data:
