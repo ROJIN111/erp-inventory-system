@@ -1,6 +1,8 @@
 -- Database schema initialization script for ERP Inventory System.
 -- The statements are designed to be idempotent for repeatable local setup.
 
+SET NAMES utf8mb4;
+
 CREATE TABLE IF NOT EXISTS sys_user (
     id BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '用户ID',
     username VARCHAR(50) NOT NULL COMMENT '用户名',

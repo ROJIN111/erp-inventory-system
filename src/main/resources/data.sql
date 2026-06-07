@@ -1,5 +1,7 @@
 -- Seed data initialization script for ERP Inventory System.
 
+SET NAMES utf8mb4;
+
 INSERT INTO sys_user (username, password, real_name, email, status, deleted)
 SELECT 'admin', '$2a$10$rOz9hOaR0P.U3vH8Dy7SpeAX.EOvL9Pn4zItDskZ6rQqQZ3Bq4rIy', '系统管理员', 'admin@erp.com', 1, 0
 WHERE NOT EXISTS (
