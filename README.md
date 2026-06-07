@@ -6,6 +6,8 @@
 ![MySQL](https://img.shields.io/badge/MySQL-8.0%2B-4479A1)
 ![Docker](https://img.shields.io/badge/Docker%20Compose-ready-success)
 
+**Contact:** 2812447865@qq.com
+
 `erp-inventory-system` 是一个基于 `Spring Boot + Vue 3` 的中小型企业库存管理系统。项目围绕商品主数据、入库、出库、库存盘点、库存流水、库存预警、用户权限和操作日志，构建了一套可追踪、可审核、可演示的库存业务闭环。
 
 它解决的核心问题是：传统仓库依赖 Excel 或人工台账时，库存变化难追踪、审核责任不清晰、库存预警滞后、不同岗位权限边界模糊。本系统通过前后端分离、RBAC 权限控制、单据审核、库存流水和预警处理记录，让库存管理从“能记录”提升到“可追踪、可审核、可分析”。
@@ -62,7 +64,7 @@
 
 ## Docker Compose 一键启动
 
-推荐面试或展示时使用 Docker Compose，一条命令启动 `MySQL + Spring Boot 后端 + Vue/Nginx 前端`。
+推荐项目预览或本地部署时使用 Docker Compose，一条命令启动 `MySQL + Spring Boot 后端 + Vue/Nginx 前端`。
 
 ```bash
 docker compose up --build
@@ -87,7 +89,7 @@ Compose 会自动完成：
 - 创建 `erp_inventory` 数据库。
 - 执行 `schema.sql` 建表。
 - 执行 `data.sql` 初始化基础用户、角色、权限和商品数据。
-- 执行 `demo-data.sql` 导入面试展示用业务数据。
+- 执行 `demo-data.sql` 导入示例业务数据。
 - 后端使用 `prod` 配置连接 Compose 内部 MySQL。
 - 前端 Nginx 将 `/api` 反向代理到后端服务。
 
@@ -214,7 +216,7 @@ erp-inventory-system/
 |   |-- application*.properties              # dev/test/prod 环境配置
 |   |-- schema.sql                           # 建表脚本
 |   |-- data.sql                             # 基础数据
-|   `-- demo-data.sql                        # 面试展示用业务数据
+|   `-- demo-data.sql                        # 示例业务数据
 |-- src/test/java/com/example/erpinventory/  # 后端测试
 `-- erp-inventory-web/                       # Vue 3 前端工程
     |-- Dockerfile                           # 前端镜像构建文件
