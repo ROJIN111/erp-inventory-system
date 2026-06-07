@@ -1,5 +1,5 @@
--- 应用启动时执行的整合版建表脚本
--- 这份脚本同时兼容“全新初始化”和“从旧版拆分脚本升级”的场景。
+-- Database schema initialization script for ERP Inventory System.
+-- The statements are designed to be idempotent for repeatable local setup.
 
 CREATE TABLE IF NOT EXISTS sys_user (
     id BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '用户ID',
