@@ -17,9 +17,8 @@ erp-inventory-web/.vite
 *.pid
 *.tmp
 HELP.md
-可删除文件
 
-# Documents are useful for GitHub but not for image builds
+# Files not needed in Docker image builds
 docs
 *.md
 *.doc
